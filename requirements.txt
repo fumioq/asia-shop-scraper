@@ -1,0 +1,10 @@
+pygsheets==2.0.6
+requests==2.31.0
+beautifulsoup4==4.12.3
+numpy==1.26.4
+pandas==2.2.2
+httplib2shim==0.0.3
+gunicorn==23.0.0
+flask==3.0.3
+selenium==4.20.0
+prometheus_client==0.20.0
