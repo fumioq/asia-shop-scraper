@@ -53,15 +53,21 @@ def scrape_data_selenium(now_str) -> list:
 
     driver = webdriver.Firefox(options=ffOptions)
     actions_chains = webdriver.ActionChains(driver)
+
+    print('Webdriver ok!')
+
     driver.get('https://www.asiashop.com.br/categoria/temperos-orientais?pag=1')
 
     element = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, 'span[class="cookiewarning-btn"]'))
     )
 
+    print('Page loaded successfully. Loading pages...')
+
     element.click()
     fully_loaded = False
     try_count = 3 # Quantidade de vezes que o robô irá procurar pelo botão de carregar mais antes de considerar que acabou
+
 
     while not fully_loaded:
         if try_count > 10:
@@ -78,6 +84,8 @@ def scrape_data_selenium(now_str) -> list:
             actions_chains.scroll_by_amount(0, 2000).perform()
             try_count += 1
             sleep(1)
+
+    print('All pages loaded, extracting data.')
 
     produtos_elements = driver.find_elements(By.CSS_SELECTOR, 'form[name^="Form"]')
     produtos = []

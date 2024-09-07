@@ -21,11 +21,10 @@ app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {
 @app.route('/', methods=['GET'])
 def main():
     # http = httplib2shim.Http()
-    # client = pygsheets.authorize(service_account_env_var = 'GCP_SERVICE_ACCOUNT', http = http)
-    client = pygsheets.authorize(service_account_env_var = 'GCP_SERVICE_ACCOUNT')
+    client = pygsheets.authorize(service_account_file = 'service_account.json')
 
     ss = client.open_by_url('https://docs.google.com/spreadsheets/d/1j-1C5fcGCxZCT2ZsgQKOxkyEjNsNeYChsTvzxQWpgvE/edit#gid=0')
-    print('Ss openned!')
+    print('Ss openned.')
 
     now = datetime.now()
     now_str = now.strftime('%Y-%m-%d')
@@ -35,12 +34,13 @@ def main():
     ws = ss.worksheet_by_title('Asia Store History')
     df = ws.get_as_df()
 
+    print('Inserting data.')
     if now_str in df['Date'].unique():
         df = df[df['Date'] != now_str]
         df_new_data = pd.DataFrame(new_data, columns=df.columns)
         df_new_data = df_new_data.replace([np.inf, -np.inf], 0)
         df = pd.concat([df_new_data, df])
-        print(f'Updating {len(new_data)} rows')
+        print(f'Updating {len(new_data)} rows.')
         ws.set_dataframe(
             df,
             'A1'
@@ -49,7 +49,7 @@ def main():
     else:
         df_new_data = pd.DataFrame(new_data, columns=df.columns)
         df_new_data = df_new_data.replace([np.inf, -np.inf], 0)
-        print(f'Inserting {len(new_data)} rows')
+        print(f'Inserting {len(new_data)} rows.')
         ws.insert_rows(
             1,
             len(df_new_data),
