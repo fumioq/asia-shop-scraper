@@ -21,7 +21,7 @@ app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {
 @app.route('/', methods=['GET'])
 def main():
     # http = httplib2shim.Http()
-    client = pygsheets.authorize(service_account_file = 'service_account.json')
+    client = pygsheets.authorize(service_account_env_var = 'GCP_SERVICE_ACCOUNT')
 
     ss = client.open_by_url('https://docs.google.com/spreadsheets/d/1j-1C5fcGCxZCT2ZsgQKOxkyEjNsNeYChsTvzxQWpgvE/edit#gid=0')
     print('Ss openned.')
