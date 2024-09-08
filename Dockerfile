@@ -16,6 +16,8 @@ RUN apt-get update && apt-get install firefox -y
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
+RUN echo $PATH > teste.txt
+
 COPY . .
 
 CMD exec gunicorn --bind 0.0.0.0:8080 --workers 1 --threads 8 main:app
