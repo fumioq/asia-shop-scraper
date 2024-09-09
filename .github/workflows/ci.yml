@@ -38,8 +38,8 @@ jobs:
       name: Run ls 1
       run: "ls -la"
     -
-      name: Run ls 2
-      run: "ls -la /github/workspace"
+      name: Run pwd
+      run: "pwd"
     -
       name: Build and push
       uses: docker/build-push-action@v6
