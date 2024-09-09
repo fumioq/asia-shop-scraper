@@ -35,6 +35,12 @@ jobs:
         FILE_NAME: ./teste.txt
         FILE_DATA: oimeunomeehleandro
     -
+      name: Run ls 1
+      run: "ls -la"
+    -
+      name: Run ls 2
+      run: "ls -la /github/workspace"
+    -
       name: Build and push
       uses: docker/build-push-action@v6
       with:
