@@ -35,7 +35,9 @@ jobs:
         push: true
         tags: fumiow/testes-fumis:latest
         secret-files: |
-          "GCP_SERVICE_ACCOUNT=service_account.json"  
+          TESTE=teste.txt
+          GCP_SERVICE_ACCOUNT=service_account.json
+          "GCP_SERVICE_ACCOUNT=service_account.json"
         # secrets: |
         #   DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
         #   "GCP_SERVICE_ACCOUNT=${{ secrets.GCP_SERVICE_ACCOUNT }}"
