@@ -47,10 +47,10 @@ jobs:
         push: true
         tags: fumiow/testes-fumis:latest
         secret-files: |
-          TESTE=/github/workspace/teste.txt
-          "TESTE2=/github/workspace/teste.txt"
-          GCP_SERVICE_ACCOUNT=/github/workspace/service_account.json
-          "GCP_SERVICE_ACCOUNT=/github/workspace/service_account.json"
+          TESTE=/home/runner/work/asia-shop-scraper/asia-shop-scraper/teste.txt
+          "TESTE2=/home/runner/work/asia-shop-scraper/asia-shop-scraper/teste.txt"
+          GCP_SERVICE_ACCOUNT=/home/runner/work/asia-shop-scraper/asia-shop-scraper/service_account.json
+          "GCP_SERVICE_ACCOUNT=/home/runner/work/asia-shop-scraper/asia-shop-scraper/service_account.json"
         # secrets: |
         #   DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
         #   "GCP_SERVICE_ACCOUNT=${{ secrets.GCP_SERVICE_ACCOUNT }}"
