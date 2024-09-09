@@ -13,7 +13,7 @@ RUN wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | tee /etc
 RUN echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
 RUN apt-get update && apt-get install firefox -y
 
-RUN cat /run/secrets/GCP_SERVICE_ACCOUNT > ./GCP_SERVICE_ACCOUNT.txt
+RUN cat /run/secrets/GCP_SERVICE_ACCOUNT > GCP_SERVICE_ACCOUNT.txt
 
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
