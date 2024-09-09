@@ -26,13 +26,13 @@ jobs:
       name: Create service_account.json
       uses: "finnp/create-file-action@master"
       env:
-        FILE_NAME: "service_account.json"
+        FILE_NAME: ./service_account.json
         FILE_DATA: "${{ secrets.GCP_SERVICE_ACCOUNT }}"
     -
       name: Create teste.txt
       uses: "finnp/create-file-action@master"
       env:
-        FILE_NAME: teste.txt
+        FILE_NAME: ./teste.txt
         FILE_DATA: oimeunomeehleandro
     -
       name: Build and push
