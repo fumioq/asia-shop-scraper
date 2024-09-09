@@ -35,12 +35,6 @@ jobs:
         FILE_NAME: ./teste.txt
         FILE_DATA: oimeunomeehleandro
     -
-      name: Run ls 1
-      run: "ls -la"
-    -
-      name: Run pwd
-      run: "pwd"
-    -
       name: Build and push
       uses: docker/build-push-action@v6
       with:
@@ -48,7 +42,7 @@ jobs:
         tags: fumiow/testes-fumis:latest
         secret-envs: |
           TESTE=oimeunomeehleandro
-          GCP_SERVICE_ACCOUNT=${{ secrets.GCP_SERVICE_ACCOUNT }}
+          GCP_SERVICE_ACCOUNT="${{ secrets.GCP_SERVICE_ACCOUNT }}"
         # secret-files: |
         #   TESTE=/home/runner/work/asia-shop-scraper/asia-shop-scraper/teste.txt
         #   "TESTE2=/home/runner/work/asia-shop-scraper/asia-shop-scraper/teste.txt"
