@@ -34,7 +34,9 @@ jobs:
       with:
         push: true
         tags: fumiow/testes-fumis:latest
-        secrets: |
-          DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
-          "GCP_SERVICE_ACCOUNT=${{ secrets.GCP_SERVICE_ACCOUNT }}"
+        secret-files: |
+          "${{ secrets.DOCKERHUB_USERNAME }}=./DOCKERHUB_USERNAME.txt"  
+        # secrets: |
+        #   DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
+        #   "GCP_SERVICE_ACCOUNT=${{ secrets.GCP_SERVICE_ACCOUNT }}"
           
