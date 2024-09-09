@@ -23,32 +23,9 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     -
-      name: Create service_account.json
-      uses: "finnp/create-file-action@master"
-      env:
-        FILE_NAME: ./service_account.json
-        FILE_DATA: "${{ secrets.GCP_SERVICE_ACCOUNT }}"
-    -
-      name: Create teste.txt
-      uses: "finnp/create-file-action@master"
-      env:
-        FILE_NAME: ./teste.txt
-        FILE_DATA: oimeunomeehleandro
-    -
       name: Build and push
       uses: docker/build-push-action@v6
       with:
         push: true
         tags: fumiow/testes-fumis:latest
-        secrets: |
-          TESTE=oimeunomeehleandro
-          "GCP_SERVICE_ACCOUNT=${{ secrets.GCP_SERVICE_ACCOUNT }}"
-        # secret-files: |
-        #   TESTE=/home/runner/work/asia-shop-scraper/asia-shop-scraper/teste.txt
-        #   "TESTE2=/home/runner/work/asia-shop-scraper/asia-shop-scraper/teste.txt"
-        #   GCP_SERVICE_ACCOUNT=/home/runner/work/asia-shop-scraper/asia-shop-scraper/service_account.json
-        #   "GCP_SERVICE_ACCOUNT=/home/runner/work/asia-shop-scraper/asia-shop-scraper/service_account.json"
-        # secrets: |
-        #   DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
-        #   "GCP_SERVICE_ACCOUNT=${{ secrets.GCP_SERVICE_ACCOUNT }}"
           
