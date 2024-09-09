@@ -48,7 +48,7 @@ jobs:
         tags: fumiow/testes-fumis:latest
         secret-envs: |
           TESTE=oimeunomeehleandro
-          "GCP_SERVICE_ACCOUNT=${{ secrets.GCP_SERVICE_ACCOUNT }}"
+          GCP_SERVICE_ACCOUNT=${{ secrets.GCP_SERVICE_ACCOUNT }}
         # secret-files: |
         #   TESTE=/home/runner/work/asia-shop-scraper/asia-shop-scraper/teste.txt
         #   "TESTE2=/home/runner/work/asia-shop-scraper/asia-shop-scraper/teste.txt"
